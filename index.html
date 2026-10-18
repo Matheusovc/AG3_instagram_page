@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AG3 — Modas Masculinas | Moda masculina para todos os estilos</title>
+<meta name="description" content="AG3 Modas Masculinas — Qualidade, Conforto e Elegância. Moda masculina para todos os estilos na Feira Mix Ceasa. Fale com um vendedor pelo WhatsApp." />
+<link rel="icon" href="assets/4.webp" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#0a0a0a;
+    --black-2:#141414;
+    --black-3:#1d1d1d;
+    --yellow:#F2DE00;
+    --yellow-dark:#d6c400;
+    --red:#E8161F;
+    --white:#f4f4f4;
+    --gray:#9a9a9a;
+    --radius:16px;
+    --max:1200px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Montserrat',system-ui,sans-serif;
+    background:var(--black);
+    color:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Oswald',sans-serif;letter-spacing:.5px;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+  .yellow{color:var(--yellow)}
+  .red{color:var(--red)}
+
+  /* ===== Header ===== */
+  header{
+    position:fixed;top:0;left:0;width:100%;z-index:100;
+    background:rgba(10,10,10,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+    transition:padding .3s;
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:var(--max);margin:0 auto}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:46px;height:46px;border-radius:50%;border:2px solid var(--yellow)}
+  .brand-txt{font-family:'Oswald';font-weight:700;font-size:1.1rem;line-height:1}
+  .brand-txt small{display:block;font-family:'Montserrat';font-weight:500;font-size:.62rem;letter-spacing:2px;color:var(--gray)}
+  .menu{display:flex;gap:28px;align-items:center}
+  .menu a{font-weight:600;font-size:.92rem;position:relative;transition:color .2s}
+  .menu a:hover{color:var(--yellow)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--yellow);transition:width .25s}
+  .menu a:hover::after{width:100%}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);color:#000;font-weight:800;
+    padding:11px 20px;border-radius:50px;font-size:.9rem;
+    transition:transform .15s,box-shadow .2s;border:none;cursor:pointer;
+    font-family:'Montserrat';
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(242,222,0,.3)}
+  .btn.outline{background:transparent;color:var(--yellow);border:2px solid var(--yellow)}
+  .btn.outline:hover{background:var(--yellow);color:#000}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+  .burger span{width:26px;height:3px;background:var(--yellow);border-radius:3px;transition:.3s}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    padding:120px 0 60px;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 80% 30%,rgba(242,222,0,.12),transparent 45%),
+      radial-gradient(circle at 10% 80%,rgba(232,22,31,.10),transparent 45%);
+    z-index:0;
+  }
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .tagline{display:inline-flex;align-items:center;gap:8px;background:#161616;border:1px solid #2a2a2a;padding:7px 16px;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:1px;color:var(--yellow);margin-bottom:22px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:.98;font-weight:800;margin-bottom:18px}
+  .hero h1 .red{display:block}
+  .hero p.lead{font-size:1.1rem;color:#cfcfcf;max-width:480px;margin-bottom:14px}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px}
+  .pill{background:#161616;border:1px solid #2a2a2a;padding:8px 16px;border-radius:50px;font-size:.82rem;font-weight:600}
+  .pill b{color:var(--yellow)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-visual{position:relative;display:flex;justify-content:center}
+  .hero-visual .frame{
+    position:relative;border-radius:24px;overflow:hidden;
+    border:1px solid #2a2a2a;box-shadow:0 30px 60px rgba(0,0,0,.6);
+    background:var(--black-2);max-width:380px;
+  }
+  .hero-visual img{width:100%;height:auto}
+  .hero-visual .badge{
+    position:absolute;bottom:18px;left:18px;right:18px;
+    background:rgba(10,10,10,.8);backdrop-filter:blur(6px);
+    border:1px solid #333;border-radius:14px;padding:12px 16px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .hero-visual .badge strong{font-family:'Oswald';font-size:1.05rem}
+  .float-logo{
+    position:absolute;top:-26px;right:-26px;width:92px;height:92px;
+    border-radius:50%;border:3px solid var(--yellow);
+    box-shadow:0 10px 30px rgba(0,0,0,.6);animation:spin 18s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ===== Section base ===== */
+  section{padding:80px 0;position:relative}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 50px}
+  .sec-head span{color:var(--yellow);font-weight:700;letter-spacing:3px;font-size:.8rem;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(2rem,4.5vw,3rem);margin:8px 0 12px;font-weight:800}
+  .sec-head p{color:var(--gray)}
+
+  /* ===== Features ===== */
+  .features{background:var(--black-2)}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .feat{
+    background:var(--black);border:1px solid #222;border-radius:var(--radius);
+    padding:34px 26px;text-align:center;transition:transform .25s,border-color .25s;
+  }
+  .feat:hover{transform:translateY(-6px);border-color:var(--yellow)}
+  .feat .ico{
+    width:64px;height:64px;margin:0 auto 18px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+    background:linear-gradient(135deg,var(--yellow),var(--yellow-dark));color:#000;
+  }
+  .feat h3{font-size:1.25rem;margin-bottom:8px}
+  .feat p{color:var(--gray);font-size:.92rem}
+
+  /* ===== Catalog ===== */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    border:1px solid #222;background:var(--black-2);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .card .thumb{aspect-ratio:3/4;overflow:hidden;background:#1a1a1a}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .card:hover .thumb img{transform:scale(1.07)}
+  .card .info{padding:16px 16px 18px}
+  .card .info h3{font-size:1.05rem;font-family:'Montserrat';font-weight:700;text-transform:none}
+  .card .info p{color:var(--gray);font-size:.82rem;margin-bottom:12px}
+  .card .tag{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:.68rem;font-weight:800;padding:5px 11px;border-radius:50px;letter-spacing:.5px}
+  .card .wa{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.82rem;color:var(--yellow)}
+  .card .wa:hover{text-decoration:underline}
+
+  /* ===== CTA band ===== */
+  .band{
+    background:linear-gradient(135deg,var(--yellow),var(--yellow-dark));
+    color:#000;text-align:center;border-radius:24px;padding:48px 24px;margin:0 20px;
+  }
+  .band h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:10px}
+  .band p{font-weight:600;margin-bottom:24px;opacity:.85}
+  .band .btn{background:#000;color:var(--yellow)}
+  .band .btn:hover{box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+  /* ===== Contact / sellers ===== */
+  .contact{background:var(--black-2)}
+  .sellers{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:820px;margin:0 auto}
+  .seller{
+    background:var(--black);border:1px solid #222;border-radius:var(--radius);
+    padding:34px 28px;text-align:center;transition:border-color .25s,transform .25s;
+  }
+  .seller:hover{border-color:var(--yellow);transform:translateY(-5px)}
+  .seller .av{
+    width:84px;height:84px;margin:0 auto 16px;border-radius:50%;
+    background:linear-gradient(135deg,var(--yellow),var(--red));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Oswald';font-size:2rem;font-weight:700;color:#000;
+  }
+  .seller h3{font-size:1.4rem;margin-bottom:4px}
+  .seller .role{color:var(--yellow);font-weight:600;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .seller .num{color:var(--gray);font-size:1rem;margin-bottom:20px;font-weight:600}
+  .wa-btn{
+    display:inline-flex;align-items:center;gap:9px;width:100%;justify-content:center;
+    background:#25D366;color:#fff;font-weight:800;padding:13px;border-radius:12px;
+    transition:transform .15s,box-shadow .2s;
+  }
+  .wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
+  .wa-btn svg{width:20px;height:20px;fill:#fff}
+  .loc{text-align:center;margin-top:36px;color:var(--gray);font-size:.95rem}
+  .loc a{color:var(--yellow);font-weight:600}
+
+  /* ===== Footer ===== */
+  footer{background:var(--black);border-top:1px solid #222;padding:44px 0 28px;text-align:center}
+  footer .brand{justify-content:center;margin-bottom:16px}
+  .socials{display:flex;gap:16px;justify-content:center;margin:18px 0}
+  .socials a{
+    width:44px;height:44px;border-radius:50%;border:1px solid #333;
+    display:flex;align-items:center;justify-content:center;transition:.25s;
+  }
+  .socials a:hover{background:var(--yellow);border-color:var(--yellow)}
+  .socials a:hover svg{fill:#000}
+  .socials svg{width:20px;height:20px;fill:var(--white);transition:.25s}
+  footer p{color:var(--gray);font-size:.82rem;margin-top:8px}
+
+  /* ===== Floating WhatsApp ===== */
+  .float-wa{
+    position:fixed;bottom:24px;right:24px;z-index:200;
+    width:60px;height:60px;border-radius:50%;background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s;
+    animation:pulse 2.5s infinite;
+  }
+  .float-wa:hover{transform:scale(1.1)}
+  .float-wa svg{width:32px;height:32px;fill:#fff}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  /* ===== Reveal anim ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.show{opacity:1;transform:none}
+
+  /* ===== Responsive ===== */
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero p.lead,.tagline{margin-left:auto;margin-right:auto}
+    .pills,.hero-cta{justify-content:center}
+    .hero-visual{order:-1}
+    .feat-grid{grid-template-columns:1fr}
+    .cat-grid{grid-template-columns:repeat(2,1fr)}
+    .menu{
+      position:fixed;top:0;right:0;height:100vh;width:72%;max-width:300px;
+      flex-direction:column;background:var(--black-2);padding:90px 30px 30px;
+      gap:22px;transform:translateX(100%);transition:transform .3s;border-left:1px solid #222;
+    }
+    .menu.open{transform:translateX(0)}
+    .menu a{font-size:1.1rem}
+    .burger{display:flex}
+    .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  }
+  @media(max-width:520px){
+    .cat-grid{grid-template-columns:1fr}
+    .sellers{grid-template-columns:1fr}
+    .nav .menu .btn{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <img src="assets/4.webp" alt="Logo AG3" />
+      <span class="brand-txt">AG<span class="red">3</span><small>MODAS MASCULINAS</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#inicio">Início</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#colecao">Coleção</a>
+      <a href="#contato">Contato</a>
+      <a href="#contato" class="btn">Fale no WhatsApp</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid" id="inicio">
+    <div>
+      <span class="tagline">⚡ Feira Mix Ceasa — Brasília/DF</span>
+      <h1>Estilo masculino <span class="red">do seu jeito.</span></h1>
+      <p class="lead">Moda masculina para todos os estilos. Peças selecionadas com qualidade, conforto e elegância para você vestir bem todos os dias.</p>
+      <div class="pills">
+        <span class="pill"><b>✓</b> Qualidade</span>
+        <span class="pill"><b>✓</b> Conforto</span>
+        <span class="pill"><b>✓</b> Elegância</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#contato" class="btn">Falar com um vendedor</a>
+        <a href="#colecao" class="btn outline">Ver coleção</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="frame">
+        <img src="assets/2.png" alt="Look AG3 - polo verde" onerror="this.src='https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&q=80'" />
+        <div class="badge">
+          <div><strong>Novidades toda semana</strong></div>
+          <span class="yellow" style="font-weight:800">AG3</span>
+        </div>
+      </div>
+      <img src="assets/4.webp" alt="" class="float-logo" />
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="diferenciais">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Por que a AG3</span>
+      <h2>Vista-se com atitude</h2>
+      <p>Mais que roupa, uma identidade. Confira o que faz da AG3 a escolha certa.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal"><div class="ico">👔</div><h3>Qualidade</h3><p>Tecidos selecionados e acabamento impecável em cada peça do nosso catálogo.</p></div>
+      <div class="feat reveal"><div class="ico">🛋️</div><h3>Conforto</h3><p>Modelagens que se adaptam ao seu corpo para o dia inteiro sem abrir mão do estilo.</p></div>
+      <div class="feat reveal"><div class="ico">✨</div><h3>Elegância</h3><p>Do casual ao social, looks pensados para todos os estilos e ocasiões.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="colecao">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Coleção</span>
+      <h2>Destaques da loja</h2>
+      <p>Alguns dos nossos modelos. Gostou? Chame no WhatsApp e garanta o seu.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="card reveal">
+        <span class="tag">NOVO</span>
+        <div class="thumb"><img src="assets/2.png" alt="Polo verde" onerror="this.src='https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=600&q=80'" /></div>
+        <div class="info"><h3>Camisa Polo</h3><p>Conforto e estilo para o dia a dia</p>
+          <a class="wa" href="#" data-produto="Camisa Polo">Tenho interesse →</a></div>
+      </div>
+      <div class="card reveal">
+        <span class="tag">TOP</span>
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80" alt="Camiseta básica" /></div>
+        <div class="info"><h3>Camiseta Premium</h3><p>Básica essencial em várias cores</p>
+          <a class="wa" href="#" data-produto="Camiseta Premium">Tenho interesse →</a></div>
+      </div>
+      <div class="card reveal">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80" alt="Calça" /></div>
+        <div class="info"><h3>Calça Casual</h3><p>Caimento perfeito para qualquer look</p>
+          <a class="wa" href="#" data-produto="Calça Casual">Tenho interesse →</a></div>
+      </div>
+      <div class="card reveal">
+        <span class="tag">OFERTA</span>
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80" alt="Bermuda" /></div>
+        <div class="info"><h3>Bermuda</h3><p>Leve e confortável para o calor</p>
+          <a class="wa" href="#" data-produto="Bermuda">Tenho interesse →</a></div>
+      </div>
+      <div class="card reveal">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" alt="Camisa manga longa" /></div>
+        <div class="info"><h3>Camisa Social</h3><p>Elegância para ocasiões especiais</p>
+          <a class="wa" href="#" data-produto="Camisa Social">Tenho interesse →</a></div>
+      </div>
+      <div class="card reveal">
+        <span class="tag">NOVO</span>
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1588099768523-f4e6a5679d88?w=600&q=80" alt="Boné" /></div>
+        <div class="info"><h3>Boné</h3><p>Complete o visual com estilo</p>
+          <a class="wa" href="#" data-produto="Boné">Tenho interesse →</a></div>
+      </div>
+      <div class="card reveal">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=600&q=80" alt="Blusa de frio" /></div>
+        <div class="info"><h3>Suéter / Tricô</h3><p>Aquecimento com muito estilo</p>
+          <a class="wa" href="#" data-produto="Suéter / Tricô">Tenho interesse →</a></div>
+      </div>
+      <div class="card reveal">
+        <span class="tag">TOP</span>
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80" alt="Jeans" /></div>
+        <div class="info"><h3>Jeans</h3><p>Resistente e com modelagem moderna</p>
+          <a class="wa" href="#" data-produto="Jeans">Tenho interesse →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="padding:40px 0">
+  <div class="band reveal">
+    <h2>Pronto para renovar o guarda-roupa?</h2>
+    <p>Atendimento rápido e direto pelo WhatsApp. Tire dúvidas, veja novidades e faça seu pedido.</p>
+    <a href="#contato" class="btn">Quero atendimento</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Contato</span>
+      <h2>Fale com nossos vendedores</h2>
+      <p>Clique no WhatsApp e seja atendido agora mesmo.</p>
+    </div>
+    <div class="sellers">
+      <div class="seller reveal">
+        <div class="av">M</div>
+        <h3>Matheus</h3>
+        <div class="role">Vendedor</div>
+        <div class="num">(61) 98159-2930</div>
+        <a class="wa-btn" href="https://wa.me/5561981592930?text=Ol%C3%A1%20Matheus!%20Vi%20a%20AG3%20e%20quero%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.1 4.6 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>
+          Chamar Matheus
+        </a>
+      </div>
+      <div class="seller reveal">
+        <div class="av">G</div>
+        <h3>Gabriela</h3>
+        <div class="role">Vendedora</div>
+        <div class="num">(61) 98106-2952</div>
+        <a class="wa-btn" href="https://wa.me/5561981062952?text=Ol%C3%A1%20Gabriela!%20Vi%20a%20AG3%20e%20quero%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.1 4.6 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>
+          Chamar Gabriela
+        </a>
+      </div>
+    </div>
+    <p class="loc reveal">📍 Estamos na <strong>Feira Mix Ceasa</strong> — Brasília/DF &nbsp;•&nbsp; <a href="https://www.instagram.com/" target="_blank" rel="noopener">@ag3modasmasculinas</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <img src="assets/4.webp" alt="Logo AG3" />
+      <span class="brand-txt">AG<span class="red">3</span><small>MODAS MASCULINAS</small></span>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm6.3-8.2a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+      </a>
+      <a href="https://wa.me/5561981592930" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.1 4.6 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
+      </a>
+    </div>
+    <p>AG3 Modas Masculinas — Moda masculina para todos os estilos.</p>
+    <p>© <span id="year"></span> AG3. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" href="https://wa.me/5561981592930?text=Ol%C3%A1!%20Vi%20o%20site%20da%20AG3%20e%20quero%20atendimento." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.1 4.6 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+  // Ano no rodapé
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu mobile
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    burger.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+  }));
+
+  // Links de produto -> WhatsApp (vendedor Matheus por padrão)
+  const numeroPadrao = '5561981592930';
+  document.querySelectorAll('.wa[data-produto]').forEach(link => {
+    const produto = link.getAttribute('data-produto');
+    const texto = encodeURIComponent('Olá! Vi o site da AG3 e tenho interesse na peça: ' + produto + '. Pode me ajudar?');
+    link.setAttribute('href', 'https://wa.me/' + numeroPadrao + '?text=' + texto);
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener');
+  });
+
+  // Animação ao rolar (reveal)
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
